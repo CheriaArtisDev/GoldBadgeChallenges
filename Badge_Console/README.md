@@ -1,33 +1,81 @@
-# CHALLENGE 4: COMPANY OUTINGS
+# Komodo Insurance
+### Komodo Insurance is fixing their badging system.
 
-## Komodo Outings
+## Here's what they need:
+An app that maintains a dictionary of details about employee badge information. (Hint: A dictionary is a collection type in C#. You'll want to use that.)
 
-Komodo accountants need a list of all outings, the cost of all outings combined, and the cost of all types of outings combined.
+Essentially, an badge will have a badge number that gives access to a specific list of doors. For instance, a developer might have access to Door A1 & A5. A claims agent might have access to B2 & B4.
 
-## Here are the parts of an outing:
-
-- Event Type:   Golf, Bowling, Amusement Park, Concert
-
-- Number of people that attended
-
-- Date
-
-- Total cost per person for the event
-
-- Total cost for the event
+## Your task will be to create the following:
+- A badge class that has the following properties:
+- BadgeID
+- List of door names for access
+- A badge repository that will have methods that do the following:
+  - Create a dictionary of badges.
+  - The key for the dictionary will be the BadgeID.
+  - The value for the dictionary will be the List of Door Names.
  
-## Here's what they'd like:
-
-- Display a list of all outings.
-
-- Add individual outings to a list(don't need to worry about delete yet)
-
-- Calculations:
-  
-  - They'd like to see a display for the combined cost for all outings.
-  
-  - They'd like to see a display of outing costs by type.
-  
-  - For example, all bowling outings for the year were $2000.00. All Concert outings cost $5000.00.
+## The Program will allow a security staff member to do the following:
+- Create a new badge
+- Update doors on an existing badge.
+- Delete all doors from an existing badge.
+- Show a list with all badge numbers and door access, like this:
  
+### Here are some views:
+- Menu
+- Hello Security Admin, What would you like to do?
+  - Add a badge
+  - Edit a badge.
+  - List all Badges
+ 
+### #1 Add a badge
+What is the number on the badge: 12345
+
+List a door that it needs access to: A5
+
+Any other doors(y/n)? y
+
+List a door that it needs access to: A7
+
+Any other doors(y/n)? n
+
+(Return to main menu.)
+
+ 
+
+### #2 Update a badge
+What is the badge number to update? 12345
+
+12345 has access to doors A5 & A7.
+
+What would you like to do?
+
+Remove a door
+
+Add a door
+> 1
+
+Which door would you like to remove? A5
+
+Door removed.
+
+12345 has access to door A7.
+
+ 
+
+### #3 List all badges view
+Key	
+
+Badge #	Door Access
+
+12345	A7
+
+22345	A1, A4, B1, B2
+
+32345	A4, A5
+ 
+
+### Out of scope:
+You do not need to consider tying an individual badge to a particular user. Just the Badge # will do.
+
 Be sure to Unit Test your Repository methods.
