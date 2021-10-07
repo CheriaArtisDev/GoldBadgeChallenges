@@ -130,12 +130,10 @@ namespace Claim_Console
            
             int index = 1;
 
-            Console.WriteLine("Claim ID\tType\tDescription\tAmount\t" +
-                "Date of Incident\tDate of Claim\tValid Claim");
-
-            Console.WriteLine($"{index}. {claim.ClaimNumber}\t" +
-                    $"{claim.ClaimType}\t{claim.Description}\t\t{claim.Amount}" +
-                    $"\t{claim.DateOfIncident}\t{claim.DateOfClaim}\t{claim.IsValid}");
+            Console.WriteLine($"{"Claim ID", -10}{"Type", -15}{"Description", -25}{"Amount", -15}{"Date of Incident", -20}{"Date of Claim", -20}{"Valid Claim", -15} \n\n");
+            Console.WriteLine($"{index, -10}. {claim.ClaimNumber, -15}" +
+                    $"{claim.ClaimType, -15}{claim.Description, -25}{claim.Amount, -15}" +
+                    $"{claim.DateOfIncident, -20}{claim.DateOfClaim, -20}{claim.IsValid, -15}");
         }
 
         private void TakeCareOfClaim()
@@ -147,13 +145,13 @@ namespace Claim_Console
             int index = 1;
 
             Console.WriteLine("Claim ID\t\tType\t\tDescription\t\tAmount\t\t" +
-                "Date of Incident\t\tDate of Claim\t\tValid Claim");
+                "Date of Incident\t\tDate of Claim\t\tValid Claim"); Console.WriteLine($"{"Claim ID",-10}{"Type",-15}{"Description",-25}{"Amount",-15}{"Date of Incident",-20}{"Date of Claim",-20}{"Valid Claim",-15} \n\n");
 
-            foreach(Claim claim in claimList)
+            foreach (Claim claim in claimList)
             {
-                Console.WriteLine($"{index}. {claim.ClaimNumber}\t\t" +
-                    $"{claim.ClaimType}\t\t{claim.Description}\t\t{claim.Amount}" +
-                    $"\t\t{claim.DateOfIncident}\t\t{claim.DateOfClaim}\t\t{claim.IsValid}");
+                Console.WriteLine($"{index,-10}. {claim.ClaimNumber,-15}" +
+                    $"{claim.ClaimType,-15}{claim.Description,-25}{claim.Amount,-15}" +
+                    $"{claim.DateOfIncident,-20}{claim.DateOfClaim,-20}{claim.IsValid,-15}");
                 index++;
             }
 
