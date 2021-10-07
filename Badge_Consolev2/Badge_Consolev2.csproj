@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4BDEFD57-E26D-4927-9939-F1288EA90143}</ProjectGuid>
+    <ProjectGuid>{5298B13C-293E-4179-BEC2-B0C4E865D09D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Badge_Console</RootNamespace>
-    <AssemblyName>Badge_Console</AssemblyName>
+    <RootNamespace>Badge_Consolev2</RootNamespace>
+    <AssemblyName>Badge_Consolev2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="ProgramUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Badge_Console
+namespace Badge_Consolev2
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            BadgeUI ui = new BadgeUI();
+            var ui = new ProgramUI();
             ui.Run();
         }
     }

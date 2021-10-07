@@ -5,20 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Badge_Console
+namespace Badge_Consolev2
 {
     public class ProgramUI
     {
         private BadgeRepo _badgeRepo = new BadgeRepo();
         public void Run()
         {
+            SeeData();
             SecurityMenu();
         }
 
         private void SecurityMenu()
         {
             bool isRunning = true;
-            while(isRunning)
+            while (isRunning)
             {
                 Console.Clear();
 
@@ -33,7 +34,7 @@ namespace Badge_Console
 
                 string choice = Console.ReadLine();
 
-                switch(choice)
+                switch (choice)
                 {
                     case "1":
                         AddBadge();
@@ -54,6 +55,7 @@ namespace Badge_Console
                         Console.WriteLine("\n Please enter a valid choice (1-5): ");
                         break;
                 }
+                PressAnyKey();
             }
         }
 
@@ -61,7 +63,7 @@ namespace Badge_Console
         {
             bool addBadge = true;
 
-            while(addBadge)
+            while (addBadge)
             {
                 Console.Clear();
 
@@ -93,13 +95,13 @@ namespace Badge_Console
         {
             bool updateBadge = true;
 
-            while(updateBadge)
+            while (updateBadge)
             {
                 Console.Clear();
                 DisplayAllBadges();
 
                 var hasBadges = _badgeRepo.DisplayAllBadges();
-                if(hasBadges.Count == 0)
+                if (hasBadges.Count == 0)
                 {
                     updateBadge = false;
                 }
@@ -125,7 +127,7 @@ namespace Badge_Console
                         "2. Remove a door \n");
 
                     string chooseOption = Console.ReadLine();
-                    switch(chooseOption)
+                    switch (chooseOption)
                     {
                         case "1":
                             AddDoor(existingBadge, inputBadge);
@@ -139,7 +141,7 @@ namespace Badge_Console
                     }
                     Console.WriteLine("\n\n Would you like to update another badge? (y/n): ");
                     string reply = Console.ReadLine().ToLower();
-                    if(reply == "y")
+                    if (reply == "y")
                     {
                         updateBadge = true;
                     }
@@ -155,13 +157,13 @@ namespace Badge_Console
         public void RemoveBadge()
         {
             bool removeBadge = true;
-            while(removeBadge)
+            while (removeBadge)
             {
                 Console.Clear();
                 DisplayAllBadges();
 
                 var hasBadges = _badgeRepo.DisplayAllBadges();
-                if(hasBadges.Count == 0)
+                if (hasBadges.Count == 0)
                 {
                     removeBadge = false;
                 }
@@ -179,13 +181,13 @@ namespace Badge_Console
                     }
                     Console.WriteLine("Are you sure you want to remove this badge? (y/n): ");
                     string reply = Console.ReadLine().ToLower();
-                    if(reply == "y")
+                    if (reply == "y")
                     {
                         Console.Clear();
                         _badgeRepo.RemoveDoorById(inputBadge);
                         Console.WriteLine("The badge you entered has been removed. \n");
                     }
-                    else if(reply == "n")
+                    else if (reply == "n")
                     {
                         Console.WriteLine($"\n Badge {inputBadge} has not been removed.");
                         return;
@@ -218,7 +220,7 @@ namespace Badge_Console
 
             Console.WriteLine($"\n Door {doorInput} was added to the badge.");
             Console.WriteLine($"{badgeInfo} has access to ");
-            foreach(var door in badge.DoorId)
+            foreach (var door in badge.DoorId)
             {
                 Console.Write($"{door}");
             }
@@ -248,3 +250,4 @@ namespace Badge_Console
         }
     }
 }
+
