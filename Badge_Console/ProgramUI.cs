@@ -91,7 +91,65 @@ namespace Badge_Console
 
         public void UpdateBadge()
         {
+            bool updateBadge = true;
 
+            while(updateBadge)
+            {
+                Console.Clear();
+                DisplayAllBadges();
+
+                var hasBadges = _badgeRepo.DisplayAllBadges();
+                if(hasBadges.Count == 0)
+                {
+                    updateBadge = false;
+                }
+                else
+                {
+                    int inputBadge = Convert.ToInt32(Console.ReadLine());
+                    var existingBadge = _badgeRepo.FindBadgeById(inputBadge);
+
+                    if (existingBadge == null)
+                    {
+                        Console.WriteLine("Badge not found.");
+                        PressAnyKey();
+                        return;
+                    }
+                    Console.WriteLine($"\n Badge {inputBadge} has access to ");
+                    foreach (var door in existingBadge.DoorId)
+                    {
+                        Console.Write($"{door}");
+                    }
+
+                    Console.WriteLine("\n\n Please choose an option below: \n" +
+                        "1. Add a door \n" +
+                        "2. Remove a door \n");
+
+                    string chooseOption = Console.ReadLine();
+                    switch(chooseOption)
+                    {
+                        case "1":
+                            AddDoor(existingBadge, inputBadge);
+                            break;
+                        case "2":
+                            RemoveDoor(existingBadge, inputBadge);
+                            break;
+                        default:
+                            Console.WriteLine("Please enter 1 or 2.");
+                            break;
+                    }
+                    Console.WriteLine("\n\n Would you like to update another badge? (y/n): ");
+                    string reply = Console.ReadLine().ToLower();
+                    if(reply == "y")
+                    {
+                        updateBadge = true;
+                    }
+                    else
+                    {
+                        updateBadge = false;
+                    }
+                }
+            }
+            PressAnyKey();
         }
 
         public void RemoveBadge()
